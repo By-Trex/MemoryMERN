@@ -1,16 +1,13 @@
 import React from "react";
+import { Container } from "react-bootstrap";
+import { SubmitMenu } from "../components/SubmitMenu";
 
 const CreateScreen = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flex:1
-      }}
-    >
-      <h1>CreateScreen</h1>
+    <div>
+      <Container>
+        <SubmitMenu />
+      </Container>
     </div>
   );
 };
