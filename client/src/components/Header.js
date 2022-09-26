@@ -1,7 +1,9 @@
-import React from "react";
+import React , {useEffect} from "react";
 import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-const Header = () => {
+import { MemoryServices } from "../backend/MemoryServices";
+const Header = () => {  
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>

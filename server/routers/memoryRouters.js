@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
     if (!memory) res.status(404).json("Body is not a valid");
 
     const createdmemory = await Memory.create(memory);
-    res.status(201).json(createdmemory);
+    return res.status(201).json(createdmemory);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }

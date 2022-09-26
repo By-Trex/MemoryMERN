@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, FormGroup } from "react-bootstrap";
 import ReactFile64 from "react-file-base64";
+import { MemoryServices } from "../backend/MemoryServices";
 export const SubmitMenu = () => {
   const [memoryData, setMemoryData] = useState({
     title: "",
@@ -9,11 +10,17 @@ export const SubmitMenu = () => {
     image: "",
   });
 
+  const createMemory = () => {
+    MemoryServices.createMemory(memoryData).then((res) => {
+      console.log("Dönen create dataa", res);
+    });
+  };
+
   return (
     <>
       <Form
         onSubmit={(e) => {
-          console.log(e);
+          e.preventDefault();
         }}
       >
         <Form.Group>
@@ -33,7 +40,6 @@ export const SubmitMenu = () => {
         <Form.Group className="mb-3">
           <Form.Label>Author</Form.Label>
           <Form.Control
-            type="password"
             placeholder="Enter Author"
             onChange={(e) =>
               setMemoryData({ ...memoryData, creator: e.target.value })
@@ -69,7 +75,10 @@ export const SubmitMenu = () => {
           marginTop: 15,
           width: "100%",
         }}
-        onClick={() => {}}
+        onClick={() => {
+          createMemory()
+
+        }}
       >
         Submit
       </Button>
